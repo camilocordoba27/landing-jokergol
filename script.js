@@ -39,19 +39,19 @@
     })();
 
     function registroEpic() {
-    window.location.href = "https://my.sisu.partners/visit/?bta=35985&nci=5672";
+    window.location.href = "#";
   }
 
   function uniteEpic() {
-    window.location.href = "https://my.sisu.partners/visit/?bta=35985&nci=5670"
+    window.location.href = "#"
   }
 
   function rakeBack(){
-    window.location.href = "https://my.sisu.partners/visit/?bta=35985&nci=5669"
+    window.location.href = "#"
   }
 
   function cashBack() {
-    window.location.href= "https://my.sisu.partners/visit/?bta=35985&nci=5668"
+    window.location.href= "#"
   }
 
 
