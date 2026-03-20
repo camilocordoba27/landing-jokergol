@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070b12" />
+  <link rel="shortcut icon" href="img/favico.svg" type="image/x-icon">
+  <title>EPICBET Casino | Promos + Giros Gratis</title>
+  <meta name="description"
+    content="Activá bonos, giros gratis y cashback. Promociones del casino con acceso rápido y CTA directo." />
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=934279155676220&ev=PageView&noscript=1" /></noscript>
+
+
+</head>
+
+<body>
+  <header class="topbar" role="banner">
+    <div class="container">
+      <div class="topbar__row">
+        <a class="brand" href="#top" aria-label="EPICBET">
+          <div class="brand__logo"><img src="img/jokergol.png" onclick="registroEpic()" alt=""></div>
+        </a>
+
+
+
+        <div class="top-actions">
+          <a class="btn btn--lime btn--xl btn--zoom" onclick="registroEpic()">CREAR CUENTA</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="casino">
+      <div class="container">
+        <div class="hero__wrap">
+          <div class="hero__card">
+            <h1 class="hero__h1">Depósitos y retiros rápidos, seguros y sin comisión</h1>
+            <p class="hero__p">
+
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--lime btn--xl" id="registro" onclick="registroEpic()"
+                aria-label="Registrate para ver promociones">
+                Registro
+              </a>
+              <a class="btn btn--ghost" href="#como" aria-label="Cómo funciona">Cómo funciona</a>
+            </div>
+
+            <div class="trust" aria-label="Indicadores de confianza">
+              <span>⚡ Activación rápida</span>
+              <span>🔒 Pagos seguros</span>
+            </div>
+          </div>
+           
+          
+        <div>
+          <h1 class="section__title">METODOS DE PAGO</h1>
+          <section class="carousel-section" aria-label="Carrusel de promociones">
+            <div class="carousel" id="promoCarousel">
+              <div class="carousel__viewport">
+                <div class="carousel__track">
+                  
+                  <article class="carousel__slide">
+                    <img src="img/mach.svg" alt="Promo 1" loading="lazy">
+                  </article>
+
+                  <article class="carousel__slide">
+                    <img src="img/webpay.svg" alt="Promo 3" loading="lazy">
+                  </article>
+
+                   <article class="carousel__slide">
+                    <img src="img/skrill.png" alt="Promo 2" loading="lazy">
+                  </article>
+                  
+                </div>
+              </div>
+
+              <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Anterior">‹</button>
+              <button class="carousel__btn carousel__btn--next" type="button" aria-label="Siguiente">›</button>
+
+              <div class="carousel__dots" aria-label="Indicadores"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    </div> 
+
+    <section id="promos" class="section" aria-label="Promociones del casino">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title">Promociones destacadas</h2>
+            <br>
+          </div>
+
+          <div class="filters" role="toolbar" aria-label="Filtros de promociones">
+            <button class="tag" type="button" aria-pressed="true" data-filter="all">Todas</button>
+            <button class="tag" type="button" aria-pressed="false" data-filter="welcome">Bienvenida</button>
+            <button class="tag" type="button" aria-pressed="false" data-filter="cashback">Cashback</button>
+            <button class="tag" type="button" aria-pressed="false" data-filter="freespins">Giros</button>
+            <button class="tag" type="button" aria-pressed="false" data-filter="events">Rakeback</button>
+          </div>
+        </div>
+
+        <div class="promo-grid" id="promoGrid">
+          <article class="promo" data-type="welcome">
+            <div class="promo__media">
+              <div class="promo__img" aria-label="Bono de casino de bienvenida">
+                <img src="img/Casino_Welcome_bonus.jpg" alt="Bono de casino de bienvenida" onerror="this.remove();" />
+              </div>
+            </div>
+            <div class="promo__content">
+              <div>
+                <div class="promo__kicker"><span class="dot"></span> Bienvenida</div>
+                <h3 class="promo__title">Bono de Casino de $300.000</h3>
+                <p class="promo__desc">Depositá, activá el bono y empezá con ventaja desde el primer día.</p>
+              </div>
+              <div class="promo__footer">
+                <div class="promo__meta">Activación: 1 click</div>
+                <button class="promo__cta" type="button" onclick="uniteEpic ()">UNITE A LA DIVERSIÓN</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="promo" data-type="cashback">
+            <div class="promo__media">
+              <div class="promo__img" aria-label="CASHBACK">
+                <img src="img/Casino_cashback_New_IB.png" alt="Cashback semanal" onerror="this.remove();" />
+              </div>
+            </div>
+            <div class="promo__content">
+              <div>
+                <div class="promo__kicker"><span class="dot"></span> Semanal</div>
+                <h3 class="promo__title">10% CASHBACK DE CASINO</h3>
+                <p class="promo__desc">Si te va mal, te devolvemos un 10% de tu pérdida neta</p>
+              </div>
+              <div class="promo__footer">
+                <div class="promo__meta">Semanal</div>
+                <button class="promo__cta" type="button" onclick="cashBack()">OBTÉNLO ACA</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="promo" data-type="events">
+            <div class="promo__media">
+              <div class="promo__img" aria-label="Promo mundial">
+                <img src="img/Casino_rakeback_New_IB.png" alt="Promo épica mundial" onerror="this.remove();" />
+              </div>
+            </div>
+            <div class="promo__content">
+              <div>
+                <div class="promo__kicker"><span class="dot"></span> Diario</div>
+                <h3 class="promo__title">10% CASINO RAKEBACK</h3>
+                <p class="promo__desc">Gnaes o pierdas, te devolvemos el 10% de la ventaja de la casa</p>
+              </div>
+              <div class="promo__footer">
+                <div class="promo__meta">Diario</div>
+                <button class="promo__cta" type="button" onclick="rakeBack()">DISFRÚTALO</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="promo" data-type="freespins">
+            <div class="promo__media">
+              <div class="promo__img" aria-label="Gana 100 giros gratis">
+                <img src="img/betget_100fs.jpg" alt="100 giros gratis" onerror="this.remove();" />
+              </div>
+            </div>
+            <div class="promo__content">
+              <div>
+                <div class="promo__kicker"><span class="dot"></span> Giros</div>
+                <h3 class="promo__title">Ganá 100 Giros Gratis</h3>
+                <p class="promo__desc">Activá la oferta y jugá por premios sin gastar de más.</p>
+              </div>
+              <div class="promo__footer">
+                <div class="promo__meta">Slots seleccionadas</div>
+                <button class="promo__cta" type="button" onclick="registroEpic()">QUIERO ACTIVARLA</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <section id="como" class="section" aria-label="Cómo funciona">
+          <div class="section__head" style="margin-top:18px;">
+            <div>
+              <h2 class="section__title">Cómo activar y cobrar promos</h2>
+              <p class="section__sub">3 pasos, fricción mínima.</p>
+            </div>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <h3>1) Elegí una promo</h3>
+              <p>Filtrá por tipo (bienvenida, cashback, giros) y abrí la oferta.</p>
+            </div>
+            <div class="step">
+              <h3>2) Activá en 1 click</h3>
+              <p>CTA directo y confirmación inmediata.</p>
+            </div>
+            <div class="step">
+              <h3>3) Jugá y cobrá</h3>
+              <p>Requisitos y vigencia claros en el detalle.</p>
+            </div>
+          </div>
+
+          <div class="fineprint">
+            +18. Jugá responsable. Las promociones pueden tener términos/condiciones, requisitos de apuesta y vigencia.
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer__row">
+          <div>
+            <div style="font-weight:1000; color: rgba(233,238,246,.8); margin-bottom:6px;">EPICBET Casino</div>
+            <div>Soporte • Seguridad • Juego responsable</div>
+          </div>
+          <div class="footer__links" aria-label="Links legales y soporte">
+            <a href="#top">Inicio</a>
+            <a href="#promos">Promos</a>
+            <a href="#como">Cómo funciona</a>
+            <a href="#!" aria-label="Términos y condiciones">Términos</a>
+            <a href="#!" aria-label="Política de privacidad">Privacidad</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="sticky" role="region" aria-label="Acción rápida">
+      <div class="sticky__row">
+        <div class="sticky__text">
+          Registrate y activá promos
+          <small>Bonos, cashback y giros</small>
+        </div>
+        <a class="btn btn--lime btn--xl btn--zoom" onclick="registroEpic()">JUGAR AHORA</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+
+</html>
