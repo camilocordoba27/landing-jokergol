@@ -168,10 +168,15 @@
     }
 
     /* Hero */
-    .hero{ padding: 24px 0 12px; }
+    .hero{ 
+      padding: 24px 0 12px; 
+      display: flex;
+      flex-direction: column;
+    }
+    
     .hero__wrap{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1 fr;
       gap:16px;
       align-items:stretch;
     }
@@ -342,6 +347,7 @@
       z-index:0;
       pointer-events:none;
     }
+    
     .promo__media{
       position:relative;
       z-index:1;
