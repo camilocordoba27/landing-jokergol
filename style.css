@@ -20,6 +20,14 @@
       --toast-muted: #9ca3af;
       --toast-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
       --toast-radius: 14px;
+            --w: 133px;
+      /* Ancho imagen */
+      --h: 207px;
+      /* Alto imagen */
+      --gap: 15px;
+      /* Espacio entre ellas */
+      --speed: 15s;
+      /* Velocidad del movimiento */
     }
 
     * {
@@ -42,6 +50,7 @@
         radial-gradient(900px 420px at 78% 18%, rgba(0, 0, 0, 0.1), transparent 60%),
         linear-gradient(180deg, var(--bg-0), var(--bg-1) 45%, var(--bg-0));
       background-attachment: fixed;
+      align-items: center;
     }
 
     main {
@@ -667,7 +676,7 @@
       background: rgba(255, 255, 255, .03);
     }
 
-    /* 1) Animación de zoom suave (pulse) */
+    /*  Animación de zoom suave */
     @keyframes zoomPulse {
 
       0%,
@@ -680,21 +689,21 @@
       }
     }
 
-    /* 2) Aplicala SOLO al botón registrate (usa una clase) */
+    /*  botón registrate */
     .btn--zoom {
       animation: zoomPulse 1.2s ease-in-out infinite;
       transform-origin: center;
       will-change: transform;
     }
 
-    /* 3) En hover, un toque más (opcional) */
+    /*  En hover, un toque más  */
     .btn--zoom:hover {
       animation-play-state: paused;
-      /* opcional: pausa el pulso */
+      
       transform: scale(1.08);
     }
 
-    /* 4) Respeta usuarios con reduce motion */
+    /*  Respeta usuarios con reduce motion */
     @media (prefers-reduced-motion: reduce) {
       .btn--zoom {
         animation: none;
@@ -1025,3 +1034,60 @@
     width: min(250px, calc(100vw - 20px)); 
   }
 }
+
+
+/*JUEGOS TOP */
+    .casino-wrapper {
+      width: 100%;
+      overflow: hidden;
+      padding: 20px 0;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .slider-infinite {
+      display: flex;
+      width: max-content;
+      gap: var(--gap);
+      animation: loop var(--speed) linear infinite;
+    }
+
+    .game-card {
+      width: var(--w);
+      height: var(--h);
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: #1a1a1a;
+      border: 1px solid #222;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .game-card:hover {
+      transform: scale(1.1);
+      border-color: #f3bc18;
+      z-index: 10;
+    }
+
+    /* BUCLE */
+    @keyframes loop {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+      
+        transform: translateX(calc(-50% - (var(--gap) / 2)));
+      }
+    }
+
+    /* Pausa la animación al pasar el mouse para que el usuario pueda ver bien el juego */
+    .casino-wrapper:hover .slider-infinite {
+      animation-play-state: paused;
+    }
