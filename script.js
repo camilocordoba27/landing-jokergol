@@ -319,9 +319,23 @@
           hideTimeoutId = null;
         }
 
+      const RESTART_AFTER_MS = 6000; 
+
         toastClose.addEventListener("click", () => {
+          
           stop();
+        
+          toast.classList.remove("toast--in");
+          toast.classList.add("toast--out");
+          
           container.style.setProperty("display", "none", "important");
+
+          console.log("Cerrado manualmente. Reiniciando en " + (RESTART_AFTER_MS / 1000) + "s");
+          
+          window.setTimeout(() => {
+            container.style.display = ""; 
+            start(); 
+          }, RESTART_AFTER_MS);
         });
 
         if (config.pauseOnHover) {
