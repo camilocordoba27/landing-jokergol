@@ -1017,3 +1017,11 @@
           transition: none !important;
         }
       }
+
+      @media (max-width: 480px) {
+  .social-proof {
+    left: 10px;
+    bottom: 10px;
+    width: min(250px, calc(100vw - 20px)); 
+  }
+}

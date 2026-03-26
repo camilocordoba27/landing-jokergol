@@ -52,19 +52,19 @@
     })();
 
     function registroEpic() {
-    window.location.href = "#";
+    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n";
   }
 
   function uniteEpic() {
-    window.location.href = "#"
+    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
   }
 
   function rakeBack(){
-    window.location.href = "#"
+    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
   }
 
   function cashBack() {
-    window.location.href= "#"
+    window.location.href= "https://trkrdr0.com/link/yv1dCOSZ3n"
   }
 
 
