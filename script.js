@@ -1,10 +1,10 @@
       // Toast cada 15s
-      const PAYMENTS_TOAST_INTERVAL_MS = 15000;
-      const PAYMENTS_TOAST_VISIBLE_MS = 5200;
+      const PAYMENTS_TOAST_INTERVAL_MS = 60000;
+      const PAYMENTS_TOAST_VISIBLE_MS = 8000;
 
       // Toast UI
       const paymentsToast = document.getElementById("paymentsToast");
-      const toastClose = document.getElementById("toastClose");
+      const toastClose = document.getElementById("socialProof");
       const toastLogo = document.getElementById("toastLogo");
       const toastLine1 = document.getElementById("toastLine1");
       const toastLine2 = document.getElementById("toastLine2");
@@ -251,9 +251,9 @@
 
         // Ajustes rápidos
         const config = {
-          showEveryMs: 4500, // cada cuánto aparece un nuevo retiro
-          visibleForMs: 3200, // cuánto tiempo queda visible antes de salir
-          startDelayMs: 1200, // delay inicial
+          showEveryMs: 10000, // cada cuánto aparece un nuevo retiro
+          visibleForMs: 4200, // cuánto tiempo queda visible antes de salir
+          startDelayMs: 3200, // delay inicial
           pauseOnHover: true,
         };
 
@@ -321,7 +321,7 @@
 
         toastClose.addEventListener("click", () => {
           stop();
-          container.style.display = "none";
+          container.style.setProperty("display", "none", "important");
         });
 
         if (config.pauseOnHover) {
