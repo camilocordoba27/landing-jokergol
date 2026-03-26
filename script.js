@@ -1,3 +1,16 @@
+      // Toast cada 15s
+      const PAYMENTS_TOAST_INTERVAL_MS = 15000;
+      const PAYMENTS_TOAST_VISIBLE_MS = 5200;
+
+      // Toast UI
+      const paymentsToast = document.getElementById("paymentsToast");
+      const toastClose = document.getElementById("toastClose");
+      const toastLogo = document.getElementById("toastLogo");
+      const toastLine1 = document.getElementById("toastLine1");
+      const toastLine2 = document.getElementById("toastLine2");
+
+
+
 (function () {
       const grid = document.getElementById("promoGrid");
       const tags = Array.from(document.querySelectorAll(".tag[data-filter]"));
@@ -176,3 +189,151 @@
     goTo(0);
     startAutoplay();
   })();
+
+
+  (() => {
+        const names = [
+          "Camila González",
+          "Sebastián Rojas",
+          "Valentina Muñoz",
+          "Matías Pérez",
+          "Fernanda Contreras",
+          "Nicolás Sepúlveda",
+          "Antonia Castro",
+          "Joaquín Ramírez",
+          "Francisca Soto",
+          "Diego Herrera",
+          "Constanza Silva",
+          "Tomás Morales",
+          "Javiera Fuentes",
+          "Benjamín Espinoza",
+          "Daniela Reyes",
+          "Cristóbal Navarro",
+          "Catalina Araya",
+          "Felipe Vera",
+          "Paz Aguirre",
+          "Ignacio Salazar",
+          "Macarena Cárdenas",
+          "Martín Valdés",
+          "Trinidad Paredes",
+          "Renato Escobar",
+          "Paula Santander",
+          "Álvaro Molina",
+          "Rocío Tapia",
+          "Rodrigo Bustos",
+          "Nicole Carrasco",
+          "Andrés Jara",
+          "Carolina Henríquez",
+          "Gabriel Torres",
+        ];
+
+        const cities = [
+          "Santiago",
+          "Providencia",
+          "Maipú",
+          "Puente Alto",
+          "Viña del Mar",
+          "Valparaíso",
+          "Concepción",
+          "La Serena",
+          "Antofagasta",
+          "Temuco",
+          "Rancagua",
+          "Talca",
+        ];
+
+        // Montos redondos (en pesos)
+        const amounts = [
+          25000, 50000, 125000, 143400, 105200, 92900, 928000, 75000, 100000, 120000, 150000, 180000, 200000, 220000, 250000, 300000,
+          350000, 400000, 450000, 500000, 550000, 600000, 650000, 700000,
+          750000, 800000, 900000, 1000000,
+        ];
+
+        // Ajustes rápidos
+        const config = {
+          showEveryMs: 4500, // cada cuánto aparece un nuevo retiro
+          visibleForMs: 3200, // cuánto tiempo queda visible antes de salir
+          startDelayMs: 1200, // delay inicial
+          pauseOnHover: true,
+        };
+
+        const toast = document.getElementById("toast");
+        const toastTitle = document.getElementById("toastTitle");
+        const toastMeta = document.getElementById("toastMeta");
+        const toastClose = document.getElementById("toastClose");
+        const container = document.getElementById("socialProof");
+
+        let lastName = null;
+        let intervalId = null;
+        let hideTimeoutId = null;
+
+        const clp = new Intl.NumberFormat("es-CL");
+
+        function formatCLP(amount) {
+          // Requerimiento: “100.000 CLP”
+          return `${clp.format(amount)} CLP`;
+        }
+
+        function randItem(arr) {
+          return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function pickName() {
+          if (names.length <= 1) return names[0] ?? "Usuario";
+          let n = randItem(names);
+          while (n === lastName) n = randItem(names);
+          lastName = n;
+          return n;
+        }
+
+        function showToast() {
+          const name = pickName();
+          const amount = randItem(amounts);
+          const city = randItem(cities);
+
+          toastTitle.textContent = "Retiro aprobado ✅";
+          toastMeta.innerHTML =
+            `<strong>${name}</strong> retiró <span class="toast__amount">${formatCLP(amount)}</span> · ${city}`;
+
+          toast.classList.remove("toast--out");
+          toast.classList.add("toast--in");
+
+          window.clearTimeout(hideTimeoutId);
+          hideTimeoutId = window.setTimeout(() => {
+            toast.classList.remove("toast--in");
+            toast.classList.add("toast--out");
+          }, config.visibleForMs);
+        }
+
+        function start() {
+          window.setTimeout(() => {
+            showToast();
+            intervalId = window.setInterval(showToast, config.showEveryMs);
+          }, config.startDelayMs);
+        }
+
+        function stop() {
+          window.clearInterval(intervalId);
+          window.clearTimeout(hideTimeoutId);
+          intervalId = null;
+          hideTimeoutId = null;
+        }
+
+        toastClose.addEventListener("click", () => {
+          stop();
+          container.style.display = "none";
+        });
+
+        if (config.pauseOnHover) {
+          toast.addEventListener("mouseenter", () => {
+            // El “why”: en hover evitamos que cambie mientras el usuario lee.
+            stop();
+          });
+          toast.addEventListener("mouseleave", () => {
+            container.style.display = "";
+            start();
+          });
+        }
+
+        start();
+      })();

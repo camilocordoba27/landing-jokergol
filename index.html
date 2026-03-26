@@ -68,41 +68,9 @@ src="https://www.facebook.com/tr?id=1250028516753389&ev=PageView&noscript=1"
             <div class="trust" aria-label="Indicadores de confianza">
               <span>⚡ Activación rápida</span>
               <span>🔒 Pagos seguros</span>
+              <span>💸 Retiros seguros e instantaneos</span>
             </div>
           </div>
-
-
-          <div class="metodo_de_pago">
-            <h1 class="section__title">METODOS DE PAGO</h1>
-            <section class="carousel-section" aria-label="Carrusel de promociones">
-              <div class="carousel" id="promoCarousel">
-                <div class="carousel__viewport">
-                  <div class="carousel__track">
-
-                    <article class="carousel__slide">
-                      <img src="img/mach.svg" alt="Promo 1" loading="lazy">
-                    </article>
-
-                    <article class="carousel__slide">
-                      <img src="img/webpay.svg" alt="Promo 3" loading="lazy">
-                    </article>
-
-                    <article class="carousel__slide">
-                      <img src="img/skrill.png" alt="Promo 2" loading="lazy">
-                    </article>
-                    
-                    <article class="carousel__slide">
-                      <img src="img/bt_clp.svg" alt="Promo 2" loading="lazy">
-                    </article>
-
-                  </div>
-                </div>
-
-                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Anterior">‹</button>
-                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Siguiente">›</button>
-
-                <div class="carousel__dots" aria-label="Indicadores"></div>
-              </div>
             </section>
           </div>
         </div>
@@ -204,6 +172,38 @@ src="https://www.facebook.com/tr?id=1250028516753389&ev=PageView&noscript=1"
           </article>
         </div>
 
+          <div class="metodo_de_pago">
+            <h1 class="section__title">METODOS DE PAGO</h1>
+            <section class="carousel-section" aria-label="Carrusel de promociones">
+              <div class="carousel" id="promoCarousel">
+                <div class="carousel__viewport">
+                  <div class="carousel__track">
+
+                    <article class="carousel__slide">
+                      <img src="img/mach.svg" alt="Promo 1" loading="lazy">
+                    </article>
+
+                    <article class="carousel__slide">
+                      <img src="img/webpay.svg" alt="Promo 3" loading="lazy">
+                    </article>
+
+                    <article class="carousel__slide">
+                      <img src="img/skrill.png" alt="Promo 2" loading="lazy">
+                    </article>
+                    
+                    <article class="carousel__slide">
+                      <img src="img/bt_clp.svg" alt="Promo 2" loading="lazy">
+                    </article>
+
+                  </div>
+                </div>
+
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Anterior">‹</button>
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Siguiente">›</button>
+
+                <div class="carousel__dots" aria-label="Indicadores"></div>
+              </div>
+
         <section id="como" class="section" aria-label="Cómo funciona">
           <div class="section__head" style="margin-top:18px;">
             <div>
@@ -261,6 +261,20 @@ src="https://www.facebook.com/tr?id=1250028516753389&ev=PageView&noscript=1"
         <a class="btn btn--lime btn--xl btn--zoom" onclick="registroEpic()">JUGAR AHORA</a>
       </div>
     </div>
+
+    <div class="social-proof" id="socialProof" aria-live="polite" aria-atomic="true">
+      <div class="toast-wrap">
+        <div class="toast" id="toast" role="status">
+          <div class="toast__icon" aria-hidden="true">💸</div>
+          <div>
+            <p class="toast__title" id="toastTitle">Retiro aprobado</p>
+            <div class="toast__meta" id="toastMeta">—</div>
+          </div>
+          <button class="toast__close" id="toastClose" type="button" aria-label="Cerrar">×</button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <script src="script.js"></script>
