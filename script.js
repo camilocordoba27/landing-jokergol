@@ -1,353 +1,365 @@
-      // Toast cada 15s
-      const PAYMENTS_TOAST_INTERVAL_MS = 60000;
-      const PAYMENTS_TOAST_VISIBLE_MS = 8000;
+// Toast cada 15s
+const PAYMENTS_TOAST_INTERVAL_MS = 60000;
+const PAYMENTS_TOAST_VISIBLE_MS = 8000;
 
-      // Toast UI
-      const paymentsToast = document.getElementById("paymentsToast");
-      const toastClose = document.getElementById("socialProof");
-      const toastLogo = document.getElementById("toastLogo");
-      const toastLine1 = document.getElementById("toastLine1");
-      const toastLine2 = document.getElementById("toastLine2");
+// Toast UI
+const paymentsToast = document.getElementById("paymentsToast");
+const toastClose = document.getElementById("socialProof");
+const toastLogo = document.getElementById("toastLogo");
+const toastLine1 = document.getElementById("toastLine1");
+const toastLine2 = document.getElementById("toastLine2");
 
 
 
 (function () {
-      const grid = document.getElementById("promoGrid");
-      const tags = Array.from(document.querySelectorAll(".tag[data-filter]"));
-      const search = document.getElementById("search");
+  const grid = document.getElementById("promoGrid");
+  const tags = Array.from(document.querySelectorAll(".tag[data-filter]"));
+  const search = document.getElementById("search");
 
-      function setPressed(activeTag) {
-        tags.forEach(t => t.setAttribute("aria-pressed", String(t === activeTag)));
-      }
-
-      function applyFilter() {
-        const active = tags.find(t => t.getAttribute("aria-pressed") === "true");
-        const filter = active?.dataset.filter ?? "all";
-        const q = (search?.value ?? "").trim().toLowerCase();
-
-        Array.from(grid.querySelectorAll(".promo")).forEach(card => {
-          const type = card.dataset.type || "all";
-          const text = card.innerText.toLowerCase();
-          const matchesType = filter === "all" ? true : type === filter;
-          const matchesQuery = q ? text.includes(q) : true;
-          card.style.display = (matchesType && matchesQuery) ? "" : "none";
-        });
-      }
-
-      tags.forEach(tag => {
-        tag.addEventListener("click", () => {
-          setPressed(tag);
-          applyFilter();
-        });
-      });
-
-      search?.addEventListener("input", applyFilter);
-
-      document.querySelectorAll("[data-cta]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const key = btn.getAttribute("data-cta");
-          alert("CTA: " + key + " (conectalo a tu link real)");
-        });
-      });
-    })();
-
-    function registroEpic() {
-    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n";
+  function setPressed(activeTag) {
+    tags.forEach(t => t.setAttribute("aria-pressed", String(t === activeTag)));
   }
 
-  function uniteEpic() {
-    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
-  }
+  function applyFilter() {
+    const active = tags.find(t => t.getAttribute("aria-pressed") === "true");
+    const filter = active?.dataset.filter ?? "all";
+    const q = (search?.value ?? "").trim().toLowerCase();
 
-  function rakeBack(){
-    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
-  }
-
-  function cashBack() {
-    window.location.href= "https://trkrdr0.com/link/yv1dCOSZ3n"
-  }
-
-
-  //Carousel
-  (function () {
-    const root = document.getElementById("promoCarousel");
-    if (!root) return;
-
-    const track = root.querySelector(".carousel__track");
-    const slides = Array.from(root.querySelectorAll(".carousel__slide"));
-    const prevBtn = root.querySelector(".carousel__btn--prev");
-    const nextBtn = root.querySelector(".carousel__btn--next");
-    const dotsWrap = root.querySelector(".carousel__dots");
-
-    let index = 0;
-    let autoplayId = null;
-    const AUTOPLAY_MS = 3800;
-    const LOOP = true;
-
-    function clampIndex(i) {
-      if (LOOP) return (i + slides.length) % slides.length;
-      return Math.max(0, Math.min(i, slides.length - 1));
-    }
-
-    function goTo(i, { focusDot = false } = {}) {
-      index = clampIndex(i);
-      track.style.transform = `translateX(${-index * 100}%)`;
-      updateDots();
-      if (focusDot) dotsWrap.querySelectorAll("button")[index]?.focus();
-    }
-
-    function next() { goTo(index + 1); }
-    function prev() { goTo(index - 1); }
-
-    function buildDots() {
-      dotsWrap.innerHTML = "";
-      slides.forEach((_, i) => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "carousel__dot";
-        b.setAttribute("aria-label", `Ir al slide ${i + 1}`);
-        b.addEventListener("click", () => goTo(i, { focusDot: true }));
-        dotsWrap.appendChild(b);
-      });
-      updateDots();
-    }
-
-    function updateDots() {
-      const dots = Array.from(dotsWrap.querySelectorAll(".carousel__dot"));
-      dots.forEach((d, i) => d.setAttribute("aria-current", String(i === index)));
-    }
-
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayId = window.setInterval(next, AUTOPLAY_MS);
-    }
-
-    function stopAutoplay() {
-      if (autoplayId) window.clearInterval(autoplayId);
-      autoplayId = null;
-    }
-
-    // Pause on hover/focus within (desktop)
-    root.addEventListener("mouseenter", stopAutoplay);
-    root.addEventListener("mouseleave", startAutoplay);
-    root.addEventListener("focusin", stopAutoplay);
-    root.addEventListener("focusout", startAutoplay);
-
-    // Buttons
-    prevBtn?.addEventListener("click", prev);
-    nextBtn?.addEventListener("click", next);
-
-    // Keyboard
-    root.setAttribute("tabindex", "0");
-    root.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
+    Array.from(grid.querySelectorAll(".promo")).forEach(card => {
+      const type = card.dataset.type || "all";
+      const text = card.innerText.toLowerCase();
+      const matchesType = filter === "all" ? true : type === filter;
+      const matchesQuery = q ? text.includes(q) : true;
+      card.style.display = (matchesType && matchesQuery) ? "" : "none";
     });
+  }
 
-    // Swipe (touch)
-    let startX = 0;
-    let deltaX = 0;
-    let isDown = false;
+  tags.forEach(tag => {
+    tag.addEventListener("click", () => {
+      setPressed(tag);
+      applyFilter();
+    });
+  });
 
-    function onPointerDown(e) {
-      isDown = true;
-      startX = e.clientX;
-      deltaX = 0;
-      track.style.transition = "none";
-      stopAutoplay();
+  search?.addEventListener("input", applyFilter);
+
+  document.querySelectorAll("[data-cta]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.getAttribute("data-cta");
+      alert("CTA: " + key + " (conectalo a tu link real)");
+    });
+  });
+})();
+
+function registroEpic() {
+  window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n";
+}
+
+function uniteEpic() {
+  window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
+}
+
+function rakeBack() {
+  window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
+}
+
+function cashBack() {
+  window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n"
+}
+
+
+function pixelRef() {
+  fbq('track', 'AddPaymentInfo', {
+    value: 5000,
+    currency: 'CLP'
+  });
+
+  setTimeout(function () {
+    window.location.href = "https://trkrdr0.com/link/yv1dCOSZ3n";
+  }, 300);
+}
+
+
+//Carousel
+(function () {
+  const root = document.getElementById("promoCarousel");
+  if (!root) return;
+
+  const track = root.querySelector(".carousel__track");
+  const slides = Array.from(root.querySelectorAll(".carousel__slide"));
+  const prevBtn = root.querySelector(".carousel__btn--prev");
+  const nextBtn = root.querySelector(".carousel__btn--next");
+  const dotsWrap = root.querySelector(".carousel__dots");
+
+  let index = 0;
+  let autoplayId = null;
+  const AUTOPLAY_MS = 3800;
+  const LOOP = true;
+
+  function clampIndex(i) {
+    if (LOOP) return (i + slides.length) % slides.length;
+    return Math.max(0, Math.min(i, slides.length - 1));
+  }
+
+  function goTo(i, { focusDot = false } = {}) {
+    index = clampIndex(i);
+    track.style.transform = `translateX(${-index * 100}%)`;
+    updateDots();
+    if (focusDot) dotsWrap.querySelectorAll("button")[index]?.focus();
+  }
+
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  function buildDots() {
+    dotsWrap.innerHTML = "";
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "carousel__dot";
+      b.setAttribute("aria-label", `Ir al slide ${i + 1}`);
+      b.addEventListener("click", () => goTo(i, { focusDot: true }));
+      dotsWrap.appendChild(b);
+    });
+    updateDots();
+  }
+
+  function updateDots() {
+    const dots = Array.from(dotsWrap.querySelectorAll(".carousel__dot"));
+    dots.forEach((d, i) => d.setAttribute("aria-current", String(i === index)));
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = window.setInterval(next, AUTOPLAY_MS);
+  }
+
+  function stopAutoplay() {
+    if (autoplayId) window.clearInterval(autoplayId);
+    autoplayId = null;
+  }
+
+  // Pause on hover/focus within (desktop)
+  root.addEventListener("mouseenter", stopAutoplay);
+  root.addEventListener("mouseleave", startAutoplay);
+  root.addEventListener("focusin", stopAutoplay);
+  root.addEventListener("focusout", startAutoplay);
+
+  // Buttons
+  prevBtn?.addEventListener("click", prev);
+  nextBtn?.addEventListener("click", next);
+
+  // Keyboard
+  root.setAttribute("tabindex", "0");
+  root.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") prev();
+    if (e.key === "ArrowRight") next();
+  });
+
+  // Swipe (touch)
+  let startX = 0;
+  let deltaX = 0;
+  let isDown = false;
+
+  function onPointerDown(e) {
+    isDown = true;
+    startX = e.clientX;
+    deltaX = 0;
+    track.style.transition = "none";
+    stopAutoplay();
+  }
+
+  function onPointerMove(e) {
+    if (!isDown) return;
+    deltaX = e.clientX - startX;
+    const percent = (deltaX / root.clientWidth) * 100;
+    track.style.transform = `translateX(${(-index * 100) + percent}%)`;
+  }
+
+  function onPointerUp() {
+    if (!isDown) return;
+    isDown = false;
+    track.style.transition = "";
+    const threshold = root.clientWidth * 0.15;
+
+    if (Math.abs(deltaX) > threshold) {
+      deltaX < 0 ? next() : prev();
+    } else {
+      goTo(index);
     }
-
-    function onPointerMove(e) {
-      if (!isDown) return;
-      deltaX = e.clientX - startX;
-      const percent = (deltaX / root.clientWidth) * 100;
-      track.style.transform = `translateX(${(-index * 100) + percent}%)`;
-    }
-
-    function onPointerUp() {
-      if (!isDown) return;
-      isDown = false;
-      track.style.transition = "";
-      const threshold = root.clientWidth * 0.15;
-
-      if (Math.abs(deltaX) > threshold) {
-        deltaX < 0 ? next() : prev();
-      } else {
-        goTo(index);
-      }
-      startAutoplay();
-    }
-
-    root.addEventListener("pointerdown", onPointerDown);
-    root.addEventListener("pointermove", onPointerMove);
-    root.addEventListener("pointerup", onPointerUp);
-    root.addEventListener("pointercancel", onPointerUp);
-    root.addEventListener("dragstart", (e) => e.preventDefault());
-
-    // Init
-    buildDots();
-    goTo(0);
     startAutoplay();
-  })();
+  }
+
+  root.addEventListener("pointerdown", onPointerDown);
+  root.addEventListener("pointermove", onPointerMove);
+  root.addEventListener("pointerup", onPointerUp);
+  root.addEventListener("pointercancel", onPointerUp);
+  root.addEventListener("dragstart", (e) => e.preventDefault());
+
+  // Init
+  buildDots();
+  goTo(0);
+  startAutoplay();
+})();
 
 
-  (() => {
-        const names = [
-          "Camila González",
-          "Sebastián Rojas",
-          "Valentina Muñoz",
-          "Matías Pérez",
-          "Fernanda Contreras",
-          "Nicolás Sepúlveda",
-          "Antonia Castro",
-          "Joaquín Ramírez",
-          "Francisca Soto",
-          "Diego Herrera",
-          "Constanza Silva",
-          "Tomás Morales",
-          "Javiera Fuentes",
-          "Benjamín Espinoza",
-          "Daniela Reyes",
-          "Cristóbal Navarro",
-          "Catalina Araya",
-          "Felipe Vera",
-          "Paz Aguirre",
-          "Ignacio Salazar",
-          "Macarena Cárdenas",
-          "Martín Valdés",
-          "Trinidad Paredes",
-          "Renato Escobar",
-          "Paula Santander",
-          "Álvaro Molina",
-          "Rocío Tapia",
-          "Rodrigo Bustos",
-          "Nicole Carrasco",
-          "Andrés Jara",
-          "Carolina Henríquez",
-          "Gabriel Torres",
-        ];
+(() => {
+  const names = [
+    "Camila González",
+    "Sebastián Rojas",
+    "Valentina Muñoz",
+    "Matías Pérez",
+    "Fernanda Contreras",
+    "Nicolás Sepúlveda",
+    "Antonia Castro",
+    "Joaquín Ramírez",
+    "Francisca Soto",
+    "Diego Herrera",
+    "Constanza Silva",
+    "Tomás Morales",
+    "Javiera Fuentes",
+    "Benjamín Espinoza",
+    "Daniela Reyes",
+    "Cristóbal Navarro",
+    "Catalina Araya",
+    "Felipe Vera",
+    "Paz Aguirre",
+    "Ignacio Salazar",
+    "Macarena Cárdenas",
+    "Martín Valdés",
+    "Trinidad Paredes",
+    "Renato Escobar",
+    "Paula Santander",
+    "Álvaro Molina",
+    "Rocío Tapia",
+    "Rodrigo Bustos",
+    "Nicole Carrasco",
+    "Andrés Jara",
+    "Carolina Henríquez",
+    "Gabriel Torres",
+  ];
 
-        const cities = [
-          "Santiago",
-          "Providencia",
-          "Maipú",
-          "Puente Alto",
-          "Viña del Mar",
-          "Valparaíso",
-          "Concepción",
-          "La Serena",
-          "Antofagasta",
-          "Temuco",
-          "Rancagua",
-          "Talca",
-        ];
+  const cities = [
+    "Santiago",
+    "Providencia",
+    "Maipú",
+    "Puente Alto",
+    "Viña del Mar",
+    "Valparaíso",
+    "Concepción",
+    "La Serena",
+    "Antofagasta",
+    "Temuco",
+    "Rancagua",
+    "Talca",
+  ];
 
-        // Montos redondos (en pesos)
-        const amounts = [
-          25000, 50000, 125000, 143400, 105200, 92900, 928000, 75000, 100000, 120000, 150000, 180000, 200000, 220000, 250000, 300000,
-          350000, 400000, 450000, 500000, 550000, 600000, 650000, 700000,
-          750000, 800000, 900000, 1000000,
-        ];
+  // Montos redondos (en pesos)
+  const amounts = [
+    25000, 50000, 125000, 143400, 105200, 92900, 928000, 75000, 100000, 120000, 150000, 180000, 200000, 220000, 250000, 300000,
+    350000, 400000, 450000, 500000, 550000, 600000, 650000, 700000,
+    750000, 800000, 900000, 1000000,
+  ];
 
-        // Ajustes rápidos
-        const config = {
-          showEveryMs: 10000, // cada cuánto aparece un nuevo retiro
-          visibleForMs: 4200, // cuánto tiempo queda visible antes de salir
-          startDelayMs: 3200, // delay inicial
-          pauseOnHover: true,
-        };
+  // Ajustes rápidos
+  const config = {
+    showEveryMs: 10000, // cada cuánto aparece un nuevo retiro
+    visibleForMs: 4200, // cuánto tiempo queda visible antes de salir
+    startDelayMs: 3200, // delay inicial
+    pauseOnHover: true,
+  };
 
-        const toast = document.getElementById("toast");
-        const toastTitle = document.getElementById("toastTitle");
-        const toastMeta = document.getElementById("toastMeta");
-        const toastClose = document.getElementById("toastClose");
-        const container = document.getElementById("socialProof");
+  const toast = document.getElementById("toast");
+  const toastTitle = document.getElementById("toastTitle");
+  const toastMeta = document.getElementById("toastMeta");
+  const toastClose = document.getElementById("toastClose");
+  const container = document.getElementById("socialProof");
 
-        let lastName = null;
-        let intervalId = null;
-        let hideTimeoutId = null;
+  let lastName = null;
+  let intervalId = null;
+  let hideTimeoutId = null;
 
-        const clp = new Intl.NumberFormat("es-CL");
+  const clp = new Intl.NumberFormat("es-CL");
 
-        function formatCLP(amount) {
-          // Requerimiento: “100.000 CLP”
-          return `${clp.format(amount)} CLP`;
-        }
+  function formatCLP(amount) {
+    // Requerimiento: “100.000 CLP”
+    return `${clp.format(amount)} CLP`;
+  }
 
-        function randItem(arr) {
-          return arr[Math.floor(Math.random() * arr.length)];
-        }
+  function randItem(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
 
-        function pickName() {
-          if (names.length <= 1) return names[0] ?? "Usuario";
-          let n = randItem(names);
-          while (n === lastName) n = randItem(names);
-          lastName = n;
-          return n;
-        }
+  function pickName() {
+    if (names.length <= 1) return names[0] ?? "Usuario";
+    let n = randItem(names);
+    while (n === lastName) n = randItem(names);
+    lastName = n;
+    return n;
+  }
 
-        function showToast() {
-          const name = pickName();
-          const amount = randItem(amounts);
-          const city = randItem(cities);
+  function showToast() {
+    const name = pickName();
+    const amount = randItem(amounts);
+    const city = randItem(cities);
 
-          toastTitle.textContent = "Retiro aprobado ✅";
-          toastMeta.innerHTML =
-            `<strong>${name}</strong> retiró <span class="toast__amount">${formatCLP(amount)}</span> · ${city}`;
+    toastTitle.textContent = "Retiro aprobado ✅";
+    toastMeta.innerHTML =
+      `<strong>${name}</strong> retiró <span class="toast__amount">${formatCLP(amount)}</span> · ${city}`;
 
-          toast.classList.remove("toast--out");
-          toast.classList.add("toast--in");
+    toast.classList.remove("toast--out");
+    toast.classList.add("toast--in");
 
-          window.clearTimeout(hideTimeoutId);
-          hideTimeoutId = window.setTimeout(() => {
-            toast.classList.remove("toast--in");
-            toast.classList.add("toast--out");
-          }, config.visibleForMs);
-        }
+    window.clearTimeout(hideTimeoutId);
+    hideTimeoutId = window.setTimeout(() => {
+      toast.classList.remove("toast--in");
+      toast.classList.add("toast--out");
+    }, config.visibleForMs);
+  }
 
-        function start() {
-          window.setTimeout(() => {
-            showToast();
-            intervalId = window.setInterval(showToast, config.showEveryMs);
-          }, config.startDelayMs);
-        }
+  function start() {
+    window.setTimeout(() => {
+      showToast();
+      intervalId = window.setInterval(showToast, config.showEveryMs);
+    }, config.startDelayMs);
+  }
 
-        function stop() {
-          window.clearInterval(intervalId);
-          window.clearTimeout(hideTimeoutId);
-          intervalId = null;
-          hideTimeoutId = null;
-        }
+  function stop() {
+    window.clearInterval(intervalId);
+    window.clearTimeout(hideTimeoutId);
+    intervalId = null;
+    hideTimeoutId = null;
+  }
 
-      const RESTART_AFTER_MS = 6000; 
+  const RESTART_AFTER_MS = 6000;
 
-        toastClose.addEventListener("click", () => {
-          
-          stop();
-        
-          toast.classList.remove("toast--in");
-          toast.classList.add("toast--out");
-          
-          container.style.setProperty("display", "none", "important");
+  toastClose.addEventListener("click", () => {
 
-          console.log("Cerrado manualmente. Reiniciando en " + (RESTART_AFTER_MS / 1000) + "s");
-          
-          window.setTimeout(() => {
-            container.style.display = ""; 
-            start(); 
-          }, RESTART_AFTER_MS);
-        });
+    stop();
 
-        if (config.pauseOnHover) {
-          toast.addEventListener("mouseenter", () => {
-            // El “why”: en hover evitamos que cambie mientras el usuario lee.
-            stop();
-          });
-          toast.addEventListener("mouseleave", () => {
-            container.style.display = "";
-            start();
-          });
-        }
+    toast.classList.remove("toast--in");
+    toast.classList.add("toast--out");
 
-        start();
-      })();
+    container.style.setProperty("display", "none", "important");
+
+    console.log("Cerrado manualmente. Reiniciando en " + (RESTART_AFTER_MS / 1000) + "s");
+
+    window.setTimeout(() => {
+      container.style.display = "";
+      start();
+    }, RESTART_AFTER_MS);
+  });
+
+  if (config.pauseOnHover) {
+    toast.addEventListener("mouseenter", () => {
+      // El “why”: en hover evitamos que cambie mientras el usuario lee.
+      stop();
+    });
+    toast.addEventListener("mouseleave", () => {
+      container.style.display = "";
+      start();
+    });
+  }
+
+  start();
+})();
